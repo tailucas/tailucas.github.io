@@ -10,9 +10,19 @@ Electricity inverter products typically come with a mobile app to visualize your
 
 Having found a [binary protocol translator][deye-project-url] for my stick logger, I went to work building an application around this for the purposes of [visualizing the data][influxdata-url]. I also wanted to send some MQTT messages for control of switches for which I created a [companion project][switch-app-url] to control some [ESP32][esp-url] devices. I wanted to be able to create a crude measure of solar production capability by fetching cloud cover data for my location, and in addition to this I created a synthetic metric that indicates the proximity to noon for the given time of the year. I haven't found this particularly indicative of solar production capacity however.
 
-For some remote monitoring, I built two physical dashboards that receive MQTT messages and display them on an LCD on one and an LED matrix on the other. You can find the code for these projects [here][esp-apps-url].
+For some remote monitoring, I built two physical dashboards that receive MQTT messages and display them on an LCD on one and an LED matrix on the other. You can find the code for these projects [here][esp-apps-url]. Here are some pictures of these dashboards in action.
 
-The template for this dashboard is located [here](/assets/blog/inverter/influxdb_dashboard_sample.json).
+This dashboard shows "B" to represent battery charge percentage along with the last measured load on the batteries. A negative value indicates charge and a positive value indicates discharge. The bottom row shows "S" to indicate the power delivered by each string of solar panels. I will link to the Thingverse 3D-print for the LCD dashboard enclosure soon.
+{:refdef: style="text-align: center;"}
+![LCD dashboard](/assets/blog/inverter/lcd_dashboard.png)
+{: refdef}
+
+This dashboard still needs an enclosure and a translucent face plate. It cycles between battery state of charge and load on the batteries.
+{:refdef: style="text-align: center;"}
+![LED dashboard](/assets/blog/inverter/led_dashboard.gif)
+{: refdef}
+
+The template for this InfluxDB dashboard is located [here](/assets/blog/inverter/influxdb_dashboard_sample.json).
 
 ![Dashboard Left](/assets/blog/inverter/inverter_dashboard_a.png)
 
