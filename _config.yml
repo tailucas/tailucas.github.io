@@ -30,6 +30,7 @@ github_username:  tglucas
 theme: minima
 plugins:
   - jekyll-feed
+  - jemoji
 
 # Exclude from processing.
 # The following items will not be processed, by default.
