@@ -12,12 +12,13 @@ Having found a [binary protocol translator][deye-project-url] for my stick logge
 
 For some remote monitoring, I built two physical dashboards that receive MQTT messages and display them on an LCD on one and an LED matrix on the other. You can find the code for these projects [here][esp-apps-url]. Here are some pictures of these dashboards in action.
 
-This dashboard shows "B" to represent battery charge percentage along with the last measured load on the batteries. A negative value indicates charge and a positive value indicates discharge. The bottom row shows "S" to indicate the power delivered by each string of solar panels. I will link to the Thingverse 3D-print for the LCD dashboard enclosure soon.
+This dashboard shows "B" to represent battery charge percentage along with the last measured load on the batteries. A negative value indicates charge and a positive value indicates discharge. The bottom row shows "S" to indicate the power delivered by each string of solar panels. You can find the Thingiverse porject for this enclosure [here](https://www.thingiverse.com/thing:6068919).
+
 {:refdef: style="text-align: center;"}
 ![LCD dashboard](/assets/blog/inverter/lcd_dashboard.png)
 {: refdef}
 
-This dashboard still needs an enclosure and a translucent face plate. It cycles between battery state of charge and load on the batteries.
+This next LED matrix dashboard still needs an enclosure and a translucent face plate. It cycles between battery state of charge and load on the batteries.
 {:refdef: style="text-align: center;"}
 ![LED dashboard](/assets/blog/inverter/led_dashboard.gif)
 {: refdef}
