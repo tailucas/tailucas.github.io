@@ -4,6 +4,8 @@ title:  "Red Letter Day"
 date:   2023-06-01 09:30:52 +0200
 categories: update
 ---
+It's time to open-source my personal projects.
+
 I am now putting effort into releasing my [personal projects][tailucas-url] progressively as open-source in the hope that someone may find them useful in some capacity, either by forking or contributing to them. Most of them are [Python][python-url] projects with varying levels of compliance with accepted project structures, spanning testing, documentation and most of them started in Python 2 syntax. At any rate, I have learned a lot building robust applications according to my own design patterns and making some opinionated choices around software dependencies with a *learning objective* in mind.
 
 The most recent impetus to open-source was the development of my [Telegram Bot][pocket-lint-bot-url] ([code][pocket-lint-code-url]) for [Pocket][pocket-url] retrieval which really must to be open-source to be trusted to do what it does. Given that most of my applications follow a similar project structure, using common [library][pylib-url] and [application][base-app-url] boilerplate, there's no good reason not to open-source my other work too.

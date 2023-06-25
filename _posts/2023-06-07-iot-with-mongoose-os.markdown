@@ -4,6 +4,8 @@ title:  "IoT with Mongoose OS"
 date:   2023-06-07 21:30:52 +0200
 categories: update
 ---
+Today I'm going to talk about my Internet of Things (IoT) experiments.
+
 While [IoT](https://en.wikipedia.org/wiki/Internet_of_things) needs little introduction, the choice of platform for your own IoT project carries far-reaching implications for how you spend your energy deploying more than a single instance of your project to the real-world. This is the first of two posts about the types of IoT frameworks that I have used that represent fairly different approaches. This is my experience with [Mongoose OS][mongoose-url].
 
 I was put onto the idea of Mongoose OS after enjoying some fun possibilities with the [AWS IoT Button](https://aws.amazon.com/iotbutton/). Since general availability of the IoT button was not great, I naturally wanted to compose something with more readily available hardware. I stumbled upon mention of the [ESP32][esp-url] running Mongoose OS featured in the [AWS Partner Device Catalog](https://devices.amazonaws.com/detail/a3G0L00000AANshUAH/ESP32-PICO-KIT-V4-with-Mongoose-OS) and so I thought I'd go learn more. While Mongoose OS enables rather trivial registration of your IoT device with major cloud services, I noticed that Cesanta had its own [IoT Cloud][mdash-url] product which was really all I needed.
