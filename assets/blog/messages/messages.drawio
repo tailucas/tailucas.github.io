@@ -1,0 +1,70 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="ZSkcajXZRbt3x14Z_4z5">
+        <mxGraphModel dx="770" dy="372" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="32" value="RabbitMQ" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.624827586206893;arrowSize=0.23754789272030558;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="840" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="endArrow=classic;html=1;fontFamily=Courier New;strokeWidth=2;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="38" target="43">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="550" y="930" as="sourcePoint"/>
+                        <mxPoint x="550" y="970" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="450" y="840" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="" style="group" vertex="1" connectable="0" parent="40">
+                    <mxGeometry y="-8" width="200" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="&lt;font face=&quot;Courier New&quot;&gt;ZMQListener(MQConnection)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="55">
+                    <mxGeometry y="8" width="200" height="46.666666666666664" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="&lt;font face=&quot;Courier New&quot;&gt;ZeroMQ PUSH&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="55">
+                    <mxGeometry y="54.666666666666664" width="200" height="23.333333333333332" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&lt;font color=&quot;#a19b9b&quot; style=&quot;font-size: 10px;&quot;&gt;pylib.rabbit&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fontSize=10;" vertex="1" parent="55">
+                    <mxGeometry x="132" y="-1" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="450" y="1069.9966666666667" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="&lt;font face=&quot;Courier New&quot;&gt;RabbitMQRelay(AppThread)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="47">
+                    <mxGeometry y="23.333333333333258" width="200" height="46.666666666666664" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;font face=&quot;Courier New&quot;&gt;ZeroMQ PULL&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="47">
+                    <mxGeometry width="200" height="23.333333333333332" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="&lt;font color=&quot;#a19b9b&quot; style=&quot;font-size: 10px;&quot;&gt;pylib.rabbit&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fontSize=10;" vertex="1" parent="47">
+                    <mxGeometry x="132" y="14.00333333333333" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="RabbitMQ" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.624827586206893;arrowSize=0.23754789272030558;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="1100" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="" style="endArrow=classic;html=1;fontFamily=Courier New;strokeWidth=2;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="49" target="46">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="550" y="1060" as="sourcePoint"/>
+                        <mxPoint x="560" y="950" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="440" y="940" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="&lt;font face=&quot;Courier New&quot;&gt;&amp;nbsp;ZmqRelay(AppThread, Closable)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="53">
+                    <mxGeometry y="30" width="219.99999999999997" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&lt;font face=&quot;Courier New&quot;&gt;ZeroMQ PULL&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="53">
+                    <mxGeometry width="219.99999999999997" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="&lt;font face=&quot;Courier New&quot;&gt;ZeroMQ PUSH&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="53">
+                    <mxGeometry y="70" width="219.99999999999997" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="&lt;font color=&quot;#a19b9b&quot; style=&quot;font-size: 10px;&quot;&gt;pylib.app&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Courier New;fontSize=10;" vertex="1" parent="53">
+                    <mxGeometry x="161" y="21" width="60" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
