@@ -175,7 +175,7 @@ class MyPipelineThread(ZmqRelay):
 
 ### Message Brokers
 
-ZeroMQ adds value without a broker server to coordinate activities, leaving addressing of nodes to the application author. Given how my early infrastructure was built on ZeroMQ, I understand how to use its strengths and I continue to use it today, though it is limited to inter-thread communication. In part 2, I'll talk more about the other half of my message passing mechanisms that require a broker server, in particular, RabbitMQ and MQTT.
+ZeroMQ adds value without a broker server to coordinate activities, leaving addressing of nodes to the application author. Given how my early infrastructure was built on ZeroMQ, I understand how to use its strengths and I continue to use it today, though it is limited to inter-thread communication. In part 2, I'll talk more about the other half of my message passing mechanisms that require a broker server, in particular, [RabbitMQ][rabbit-url] and [MQTT][mqtt-url].
 
 [home-automation-blog-url]: https://tailucas.github.io/update/2023/06/18/home-automation.html
 [pylib-url]: https://github.com/tailucas/pylib
