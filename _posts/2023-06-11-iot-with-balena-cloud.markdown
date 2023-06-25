@@ -10,7 +10,7 @@ Whether developing for more traditional "embedded" projects like the [Arduino][a
 
 ## Learning from Failure
 
-In as much as source control helps keep track of software change, there's still the challenge of making devices as interchangeable as possible. It might be that your application as a vertical scaling need, necessitating different hardware of even platform. Another is inevitable hardware failure, resulting in frustration :expressionless: if a small (or large) configuration change is lost or, worse yet, an impactful availability event to your home automation :rotating_light:. I accepted early on that:
+In as much as source control helps keep track of software change, there's still the challenge of making devices as interchangeable as possible. It might be that your application as a vertical scaling need, necessitating different hardware or even platform. Another is inevitable hardware failure, resulting in frustration :expressionless: if a small (or large) configuration change is lost or, worse yet, an impactful availability event to your home automation :rotating_light:. I accepted early on that:
 
 * I will eventually lose track of any manual changes to my devices.
 * I will eventually lose track of what is on my devices if the number of devices is greater than 1.
