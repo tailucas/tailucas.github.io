@@ -4,6 +4,8 @@ title:  "Automation with Message Brokers"
 date:   2023-06-18 08:30:52 +0200
 categories: update
 ---
+Today I am going to talk about how I built my home automation projects.
+
 ### Foreword
 
 :point_right: "Automation" in this context is my specific use of the technologies discussed here to solve my own automation challenges. At present, there is no integration with sensible frameworks like [openHAB][oh-url] or [Home Assistant][ha-url] in my projects. The goal behind these projects was a learning opportunity by employing some specific technologies and my opinion on design. The parts you *may* find useful are touch-points with third-party libraries like [Flask][flask-url], [ZeroMQ][zmq-url], [RabbitMQ][rabbit-url], [SQLAlchemy][sqlalchemy-url], [Telegram's][telegram-url] (well documented) [Python Bot][telegram-bot-url], Python libraries like `asyncio`, and Docker containerization because seamless behavior comes after *much* trial and error.
