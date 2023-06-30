@@ -6,6 +6,8 @@ categories: update
 ---
 Today I am going to talk about how I built my home automation projects.
 
+:bulb: I recommend first reading both parts of my posts on [ZeroMQ][zmq-blog-url] and [RabbitMQ][rabbitmq-blog-url] message passing to introduce concepts and core implementation in my projects. It will make this post much easier to digest.
+
 ### Foreword
 
 :point_right: "Automation" in this context is my specific use of the technologies discussed here to solve my own automation challenges. At present, there is no integration with sensible frameworks like [openHAB][oh-url] or [Home Assistant][ha-url] in my projects. The goal behind these projects was a learning opportunity by employing some specific technologies and my opinion on design. The parts you *may* find useful are touch-points with third-party libraries like [Flask][flask-url], [ZeroMQ][zmq-url], [RabbitMQ][rabbit-url], [SQLAlchemy][sqlalchemy-url], [Telegram's][telegram-url] (well documented) [Python Bot][telegram-bot-url], Python libraries like `asyncio`, and Docker containerization because seamless behavior comes after *much* trial and error.
@@ -32,7 +34,7 @@ The problem being solved was to use off-the-self software and hardware to build 
 
 ### User Experience
 
-To reach the dashboard, I needed some kind of reverse proxy and I quickly discovered the [ngrok][ngrok-url] free-tier. The main requirement is that I did not want to expose an Internet-facing virtual-server port on my router and with my ISP moving to [carrier-grade NAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT) a direct route to my router IP was no longer possible. With a little bit of [regrettable](https://github.com/tailucas/event-processor/blob/master/ngrok_setup.sh) web scraping, my container bootstrap scripts download and [configure](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/app_entrypoint.sh#L6-L21) the ngrok tunnel. The free-tier generates a new, unpredictable tunnel DNS record but the local ngrok management port provides an easy way to determine this for which I have a [thread](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/app/__main__.py#L1868-L1882) called `CallbackUrlDiscovery`. The discovered URL is then forwarded to me over a notification message. 
+To reach the dashboard, I needed some kind of reverse proxy and I quickly discovered the [ngrok][ngrok-url] free-tier. The main requirement is that I did not want to expose an Internet-facing virtual-server port on my router and with my ISP moving to [carrier-grade NAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT) a direct route to my router IP was no longer possible. With a little bit of [regrettable](https://github.com/tailucas/event-processor/blob/master/ngrok_setup.sh) web scraping, my container bootstrap scripts download and [configure](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/app_entrypoint.sh#L6-L21) the ngrok tunnel. I used web scraping because at the time apt repos for Ubuntu had an outdated version. Also, I see how that ngrok are working on built-in clients for various languages, such as [ngrok-python][ngrok-python-url]. The free-tier generates a new, unpredictable tunnel DNS record but the local ngrok management port provides an easy way to determine this for which I have a [thread](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/app/__main__.py#L1868-L1882) called `CallbackUrlDiscovery`. The discovered URL is then forwarded to me over a notification message.
 
 Incidentally, [Tailscale][tailscale-url] solves this problem in a way that also covers other common networking challenges but I'll leave a deep-dive into Tailscale for another time. There are many [examples](https://duckduckgo.com/?va=v&t=ha&q=tailscale&ia=images) online about how it can be used. Suffice it to say that I'm a huge fan of Tailscale.
 
@@ -88,6 +90,8 @@ Another piece of this system is the [ADC and I/O expander on Raspberry Pi][remot
 
 A few other [ESP-based][esp-url] projects not shown here can be found in my [previous post][mongoose-blog-url] which discuss the [MQTT][mqtt-url] inputs and outputs.
 
+[zmq-blog-url]: https://tailucas.github.io/update/2023/06/25/message-brokers-zmq.html
+[rabbitmq-blog-url]: https://tailucas.github.io/update/2023/06/30/message-brokers-rabbitmq.html
 [balena-blog-url]: https://tailucas.github.io/update/2023/06/11/iot-with-balena-cloud.html
 [mongoose-blog-url]: https://tailucas.github.io/update/2023/06/07/iot-with-mongoose-os.html
 [event-processor-url]: https://github.com/tailucas/event-processor
@@ -110,6 +114,7 @@ A few other [ESP-based][esp-url] projects not shown here can be found in my [pre
 [mdash-url]: https://mdash.net/home/
 [mqtt-url]: https://mqtt.org/
 [ngrok-url]: https://ngrok.com/
+[ngrok-python-url]: https://github.com/ngrok/ngrok-python/tree/main
 [oh-url]: https://www.openhab.org/docs/
 [poetry-url]: https://python-poetry.org/
 [python-url]: https://www.python.org/
