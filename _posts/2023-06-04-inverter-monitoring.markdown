@@ -35,3 +35,5 @@ The template for this InfluxDB dashboard is located [here](/assets/blog/inverter
 [switch-app-url]: https://github.com/tailucas/switch-app
 [esp-url]: https://www.espressif.com/en/products/socs/esp32
 [esp-apps-url]: https://github.com/tailucas/arduino-mqtt-dashboard
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fupdate%2F2023%2F06%2F04%2Finverter-monitoring.html&count_bg=%23FF9900&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)](https://hits.seeyoufarm.com)

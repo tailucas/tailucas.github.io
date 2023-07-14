@@ -129,3 +129,5 @@ A few other [ESP-based][esp-url] projects not shown here can be found in my [pre
 [telegram-url]: https://telegram.org/
 [telegram-bot-url]: https://docs.python-telegram-bot.org/en/stable/
 [zmq-url]: https://zeromq.org/
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fupdate%2F2023%2F06%2F18%2Fhome-automation.html&count_bg=%23FF9900&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)](https://hits.seeyoufarm.com)

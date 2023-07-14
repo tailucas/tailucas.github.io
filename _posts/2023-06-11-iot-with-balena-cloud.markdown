@@ -71,3 +71,5 @@ The [project README](https://github.com/tailucas/remote-monitor#readme-top) cont
 [raspberry-pi-url]: https://www.raspberrypi.org/
 [rpi-img-url]: https://docs.balena.io/img/raspberry-pi/raspberry-pi.jpg
 [remote-monitor-url]: https://github.com/tailucas/remote-monitor
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fupdate%2F2023%2F06%2F11%2Fiot-with-balena-cloud.html&count_bg=%23FF9900&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)](https://hits.seeyoufarm.com)

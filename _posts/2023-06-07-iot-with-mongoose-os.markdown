@@ -44,3 +44,5 @@ In the next post, I will discuss my experience with the [Balena Cloud](https://w
 [mos-tool-url]: https://mongoose-os.com/docs/mongoose-os/userguide/mos-tool.md
 [mos-install-url]: https://mongoose-os.com/docs/mongoose-os/quickstart/setup.md
 [mqtt-url]: https://mqtt.org/
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fupdate%2F2023%2F06%2F07%2Fiot-with-mongoose-os.html&count_bg=%23FF9900&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)](https://hits.seeyoufarm.com)
