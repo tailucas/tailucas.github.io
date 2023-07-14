@@ -54,6 +54,8 @@ While Telegram allows the bot to know the user's language, the project currently
 ![Telegram][telegram-logo-url]{:width="32" align="center"}
 [Take me back to the Bot][bot-url]
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fpocket-lint%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=true)](https://hits.seeyoufarm.com)
+
 [bot-url]: http://t.me/PocketLintBot
 [pocket-logo-url]: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Pocket_App_Logo.png/320px-Pocket_App_Logo.png
 [pocket-lint-url]: /assets/pocket-lint/Pocket_lint.JPG
