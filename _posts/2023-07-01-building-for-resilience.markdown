@@ -6,7 +6,7 @@ categories: update
 ---
 Today I'm going to talk about how I build resilience into my personal projects.
 
-:thinking: This is **not** a post about testing or [writing testable code](https://duckduckgo.com/?q=writing+testable+code&va=v&t=ha&ia=web). I'll claim that my strategy of having "fun" with my personal projects limited my investment in the area of unit and integration testing at home :ninja:. I may write about this topic in future but meanwhile you can find a significant wealth of information [online](https://duckduckgo.com/?va=v&t=ha&q=software+testing&ia=web) or specifically on [Python](https://duckduckgo.com/?q=python+testing&va=v&t=ha&ia=web).
+:thinking: This is **not** a post about testing or [writing testable code](https://duckduckgo.com/?q=writing+testable+code&va=v&t=ha&ia=web). I'll claim that my strategy of having "fun" with my personal projects limited my investment in the area of unit and integration testing at home. I may write about this topic in future but meanwhile you can find a significant wealth of information [online](https://duckduckgo.com/?va=v&t=ha&q=software+testing&ia=web) or specifically on [Python](https://duckduckgo.com/?q=python+testing&va=v&t=ha&ia=web).
 
 ### Concepts
 
