@@ -1,0 +1,145 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.4">
+  <diagram name="Page-1" id="3SF_anTh7Rf6RfUTkQvT">
+    <mxGraphModel dx="683" dy="375" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mAI3evT3BGPqukFSYmow-1" value="Mobile Internet&lt;br&gt;AS12345" style="outlineConnect=0;dashed=0;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;shape=mxgraph.aws3.internet_3;fillColor=#D2D3D3;gradientColor=none;labelPosition=center;" parent="1" vertex="1">
+          <mxGeometry x="182.69" y="282" width="48.62" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-2" value="Fibre Internet&lt;br&gt;AS54321" style="outlineConnect=0;dashed=0;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;shape=mxgraph.aws3.internet_2;fillColor=#D2D3D3;gradientColor=none;labelPosition=center;" parent="1" vertex="1">
+          <mxGeometry x="582.5" y="282" width="49" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-5" value="&lt;font color=&quot;#808080&quot;&gt;192.168.0.1/24&lt;/font&gt;" style="image;html=1;image=img/lib/clip_art/networking/Router_128x128.png;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;labelBorderColor=none;spacing=-21;" parent="1" vertex="1">
+          <mxGeometry x="494.5" y="336" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-6" value="&lt;font color=&quot;#808080&quot;&gt;192.168.2.1&lt;/font&gt;" style="image;html=1;image=img/lib/clip_art/networking/Wireless_Router_128x128.png;spacingBottom=0;spacing=-7;" parent="1" vertex="1">
+          <mxGeometry x="250" y="316" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-7" value="&lt;b&gt;Primary&lt;/b&gt;&lt;div&gt;&lt;b&gt;AP&lt;/b&gt;&lt;/div&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-line-vol-2/52/wifi__wireless__internet__network__signal__connection__router-128.png" parent="1" vertex="1">
+          <mxGeometry x="590" y="359" width="34" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-9" value="" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=https://raw.githubusercontent.com/benc-uk/icon-collection/refs/heads/master/other/out/raspberry-pi.svg;" parent="1" vertex="1">
+          <mxGeometry x="389.75" y="356" width="42" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-10" value="&lt;font style=&quot;font-size: 10px;&quot; color=&quot;#808080&quot;&gt;192.168.0.10&lt;/font&gt;" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#434445;aspect=fixed;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;align=center;outlineConnect=0;shape=mxgraph.vvd.ethernet_port;spacingRight=-49;spacingBottom=-4;" parent="1" vertex="1">
+          <mxGeometry x="431.75" y="366" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-11" value="&lt;font style=&quot;font-size: 10px;&quot; color=&quot;#808080&quot;&gt;192.168.2.10&lt;/font&gt;" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#434445;aspect=fixed;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;align=center;outlineConnect=0;shape=mxgraph.vvd.ethernet_port;spacingLeft=-42;spacingBottom=-4;" parent="1" vertex="1">
+          <mxGeometry x="370" y="366" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-14" value="&lt;b&gt;Backup AP&lt;/b&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/computer-hardware-line-vol-2/52/wifi__wireless__internet__network__signal__connection__router-128.png" parent="1" vertex="1">
+          <mxGeometry x="190" y="359" width="34" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-15" value="" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=https://www.svgrepo.com/download/341024/sim-card.svg;" parent="1" vertex="1">
+          <mxGeometry x="265" y="332" width="22.25" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-16" value="Tailscale&#xa;(advertises 192.168.2.0/24)" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=https://d8p1x3h4xd5gq.cloudfront.net/59822132ca753d719145cc4c/public/6626991e8ad0b74be2ad00b1.png;labelPosition=center;align=center;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="400.75" y="392" width="20" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-21" value="&lt;font style=&quot;font-size: 8px;&quot; color=&quot;#808080&quot;&gt;192.168.0.5&lt;/font&gt;" style="image;html=1;image=img/lib/clip_art/computers/Server_Tower_128x128.png;labelPosition=right;verticalLabelPosition=bottom;align=left;verticalAlign=top;spacing=-9;" parent="1" vertex="1">
+          <mxGeometry x="540" y="457" width="60" height="67" as="geometry" />
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-1" value="Tailscale&#xa;(accepts routes)" style="shape=image;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;image=https://d8p1x3h4xd5gq.cloudfront.net/59822132ca753d719145cc4c/public/6626991e8ad0b74be2ad00b1.png;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="547" y="500" width="20" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-4" value="&lt;font color=&quot;#ffb570&quot; style=&quot;font-size: 8px;&quot;&gt;hop 1&lt;/font&gt;" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-6" target="mAI3evT3BGPqukFSYmow-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-5" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-10" target="mAI3evT3BGPqukFSYmow-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="340" y="386" as="sourcePoint" />
+            <mxPoint x="380" y="386" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-6" value="" style="endArrow=none;html=1;rounded=0;entryX=0.07;entryY=0.93;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-5" target="mAI3evT3BGPqukFSYmow-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="330" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-7" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-5" target="mAI3evT3BGPqukFSYmow-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-8" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-14" target="mAI3evT3BGPqukFSYmow-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-9" value="&lt;font color=&quot;#ffb570&quot; style=&quot;font-size: 8px;&quot;&gt;hop 2&lt;/font&gt;" style="endArrow=none;html=1;rounded=0;entryX=0.93;entryY=0.93;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-15" target="mAI3evT3BGPqukFSYmow-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mAI3evT3BGPqukFSYmow-17" value="Uptime Kuma&#xa;ICMP+HTTP" style="shape=image;verticalLabelPosition=top;verticalAlign=bottom;imageAspect=0;image=https://lab.uberspace.de/_images/uptime-kuma.svg;labelPosition=center;align=center;fontColor=#00CC66;" parent="1" vertex="1">
+          <mxGeometry x="509.5" y="457" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-10" value="" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1.004;entryY=0.702;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;fillColor=#ffe6cc;strokeColor=#EA6B66;fontColor=#000000;strokeWidth=1;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-17">
+          <mxGeometry x="-0.8408" y="-13" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="509.5" y="507" as="sourcePoint" />
+            <mxPoint x="330.32000000000005" y="372.15999999999997" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="510" />
+              <mxPoint x="460" y="380" />
+              <mxPoint x="410" y="370" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-17" value="" style="curved=1;endArrow=classic;html=1;rounded=0;dashed=1;fillColor=#ffe6cc;strokeColor=#67AB9F;fontColor=#000000;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeWidth=1;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-17" target="mAI3evT3BGPqukFSYmow-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="450" as="sourcePoint" />
+            <mxPoint x="330" y="361" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="500" y="482" />
+              <mxPoint x="410" y="480" />
+              <mxPoint x="470" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-20" value="&lt;font size=&quot;1&quot; color=&quot;#67ab9f&quot;&gt;&lt;i style=&quot;font-size: 8px;&quot;&gt;test 192.168.0.10&lt;/i&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="C3L1KgDmNhAplINbrg8K-17">
+          <mxGeometry x="-0.4982" y="-10" relative="1" as="geometry">
+            <mxPoint x="23" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-22" value="&lt;font color=&quot;#ea6b66&quot; size=&quot;1&quot;&gt;&lt;i style=&quot;font-size: 8px;&quot;&gt;test 192.168.2.1&lt;/i&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="468.0032154269515" y="489.49515817844156" as="geometry">
+            <mxPoint x="-2" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-23" value="Ping Tool" style="shape=image;verticalLabelPosition=top;verticalAlign=bottom;imageAspect=0;image=https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg;labelPosition=center;align=center;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="394" y="326" width="30.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-28" value="&lt;font style=&quot;font-size: 10px;&quot; face=&quot;Courier New&quot;&gt;/ping&lt;br&gt;/traceroute&lt;/font&gt;" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="424.75" y="326" width="15.25" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-29" value="" style="curved=1;endArrow=classic;html=1;rounded=0;dashed=1;fillColor=#ffe6cc;strokeColor=#67AB9F;fontColor=#000000;exitX=0;exitY=0.75;exitDx=0;exitDy=0;strokeWidth=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="C3L1KgDmNhAplINbrg8K-23" target="C3L1KgDmNhAplINbrg8K-31">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="492" as="sourcePoint" />
+            <mxPoint x="160" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="280" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-31" value="&lt;font style=&quot;font-size: 8px;&quot; color=&quot;#999999&quot;&gt;Arbitrary&lt;br&gt;Internet&lt;br&gt;Host&lt;/font&gt;" style="image;html=1;image=img/lib/clip_art/computers/Server_Rack_128x128.png;spacing=-9;" vertex="1" parent="1">
+          <mxGeometry x="120" y="250" width="30" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="C3L1KgDmNhAplINbrg8K-33" value="" style="curved=1;endArrow=classic;html=1;rounded=0;dashed=1;fillColor=#ffe6cc;strokeColor=#67AB9F;fontColor=#000000;strokeWidth=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="mAI3evT3BGPqukFSYmow-10" target="C3L1KgDmNhAplINbrg8K-23">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="624" y="396" as="sourcePoint" />
+            <mxPoint x="528.7282608695652" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
