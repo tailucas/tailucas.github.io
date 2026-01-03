@@ -319,5 +319,3 @@ When the context manager closes, the `__exit__` method is called by the Python r
 [pylib-url]: https://github.com/tailucas/pylib
 [sentry-url]: https://sentry.io/for/python/
 [telegram-url]: https://telegram.org/
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fupdate%2F2023%2F07%2F01%2Fbuilding-for-resilience.html&count_bg=%23FF9900&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)](https://hits.seeyoufarm.com)

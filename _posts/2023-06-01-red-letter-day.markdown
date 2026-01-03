@@ -21,5 +21,3 @@ Over time, I will do this with more of my personal projects. Many cover my own n
 [pylib-url]: https://github.com/tailucas/pylib
 [python-url]: https://www.python.org/
 [tailucas-url]: https://github.com/tailucas
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fupdate%2F2023%2F06%2F01%2Fred-letter-day.html&count_bg=%23FF9900&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false)](https://hits.seeyoufarm.com)

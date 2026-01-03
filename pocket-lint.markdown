@@ -3,10 +3,14 @@ layout: page
 title: Pocket Lint
 permalink: /pocket-lint/
 ---
+
+> **📢 2025 Announcement:** Unfortunately, on 8 July 2025 Mozilla decided to [shutdown Pocket](https://getpocket.com/home) APIs, rendering [my project](https://github.com/tailucas/pocket-lint) defunct. However, there is a wealth of useful implementation in my project that would be applicable for other, non-trivial Telegram-enabled projects.
+{: .alert .alert-info}
+
+---
+
 Welcome to the Pocket Lint Telegram Bot documentation. Though most bot functions are self-explanatory, certain background behaviours are documented here for your convenience.
 ![Pocket][pocket-logo-url]{:height="64" align="right"}
-{:style="clear: right"}
-![Pocket Lint][pocket-lint-url]{:width="256" align="right"}
 {:style="clear: right"}
 
 ### Frequently Asked Questions
@@ -53,8 +57,6 @@ While Telegram allows the bot to know the user's language, the project currently
 
 ![Telegram][telegram-logo-url]{:width="32" align="center"}
 [Take me back to the Bot][bot-url]
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftailucas.github.io%2Fpocket-lint%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=true)](https://hits.seeyoufarm.com)
 
 [bot-url]: http://t.me/PocketLintBot
 [pocket-logo-url]: https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Pocket_App_Logo.png/320px-Pocket_App_Logo.png
