@@ -2,7 +2,7 @@
 layout: post
 title:  "Building for Resilience"
 date:   2023-07-01 05:30:52 +0200
-categories: update
+categories: update availability
 ---
 Today I'm going to talk about how I build resilience into my personal projects.
 
@@ -78,7 +78,7 @@ In the same way that my [pylib][pylib-url] project contains a variety of code fa
 
 With `APP_NAME` being defined in `__init__.py` (for example [here](https://github.com/tailucas/base-app/blob/43838b1e34beaabeb36cc14964b24b563d9d0c7f/app/__init__.py#L2)), a Python [StreamHandler](https://docs.python.org/3/library/logging.handlers.html#streamhandler) is created in [pylib](https://github.com/tailucas/pylib/blob/ac05d39592c2264143ec4a37fe76b7e0369515bd/pylib/__init__.py#L27-L44) `__init__.py` to include both the application name and thread name. By default, the system log is used but otherwise the console is used which is useful when running the application interactively.
 
-```python
+{% highlight python %}
 log = logging.getLogger(APP_NAME)
 log.propagate = False
 log.setLevel(logging.DEBUG)
@@ -93,7 +93,7 @@ if sys.stdout.isatty() or ('SUPERVISOR_ENABLED' in os.environ and log_handler is
     log_handler = logging.StreamHandler(stream=sys.stdout)
     log_handler.setFormatter(formatter)
     log.addHandler(log_handler)
-```
+{% endhighlight %}
 
 It's typically convenient to have all container logs sent to a central remote logging service. On Linux, these logs can be easily forwarded to the host system `rsyslog` instance by using the [logging driver](https://github.com/tailucas/base-app/blob/43838b1e34beaabeb36cc14964b24b563d9d0c7f/docker-compose.template#L6-L7) in your `docker-compose.yml` template.
 
@@ -111,7 +111,7 @@ I happen to use [solarwinds papertrail](https://www.papertrail.com/solution/tips
 
 Sentry makes this so easy that there's very little to say about it in terms of code. If you want to explicitly forward an exception as a ticket to Sentry, you can use the following pattern.
 
-```python
+{% highlight python %}
 from sentry_sdk import capture_exception
 
 def some_function():
@@ -122,18 +122,18 @@ def some_function():
     except Exception:
         # ... catch-all
         capture_exception()
-```
+{% endhighlight %}
 
 It is important to note that Sentry will still detect unhandled exceptions via your logger without having to always use the call to `capture_exception` as above. You can also install a Sentry filter for a logger namespace in order to prevent triggering tickets for cases where there is application-level handling. I found that I needed this to filter some exception noise in RabbitMQ. Of course, filtering should be used with care to prevent masking real issues.
 
-```python
+{% highlight python %}
 from sentry_sdk.integrations.logging import ignore_logger
 ignore_logger('pika.adapters.utils.io_services_utils')
-```
+{% endhighlight %}
 
 Here is an example of using Sentry with integrations. In this example, the HTTP 500 handler for Python [Flask](https://flask.palletsprojects.com/) is updated with information to enable a [feedback form](https://github.com/tailucas/event-processor/blob/master/templates/error.html) to post to Sentry. A user-friendly way to admit failure.
 
-```python
+{% highlight python %}
 import sentry_sdk
 from sentry_sdk import last_event_id
 from sentry_sdk.integrations.flask import FlaskIntegration
@@ -149,15 +149,15 @@ def internal_server_error(e):
                            sentry_event_id=last_event_id(),
                            sentry_dsn=creds.sentry_dsn
                            ), 500
-```
+{% endhighlight %}
 
 #### Process Management
 
 Some kind of process manager is needed to control and monitor execution of your application. I've had prior success with [systemd](https://systemd.io/) but for my container applications I currently use [supervisord](http://supervisord.org/) which is loaded as part of my container entrypoint. By using this syntax below, I replace the execution context of the Docker entrypoint with supervisord as the root process.
 
-```sh
+{% highlight ruby %}
 exec env supervisord -n -c /opt/app/supervisord.conf
-```
+{% endhighlight %}
 
 Supervisord has some helpful configuration templates and good documentation on default values and possible overrides. Since all my applications use a common pattern, they all use [this stanza](https://github.com/tailucas/base-app/blob/43838b1e34beaabeb36cc14964b24b563d9d0c7f/config/supervisord.conf#L53-L57):
 
@@ -175,12 +175,12 @@ The [program stanza](http://supervisord.org/configuration.html#program-x-section
 
 If, for whatever reason, the root process fails or the container exits unexpectedly due to an environment issue, Docker can also be configured with a rule regarding what to do with the container. In [my example](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/docker-compose.template#L6), I use `unless-stopped` which will restart the container on any condition other than an explicit stop, including starting the container at host boot.
 
-```yaml
+{% highlight yaml %}
 version: "3.8"
 services:
   app:
     restart: unless-stopped
-```
+{% endhighlight %}
 
 #### Helpers
 
@@ -190,7 +190,7 @@ These work in tandem with another module [pylib.threads](https://github.com/tail
 
 Let's take an end-to-end example from the [base-app](https://github.com/tailucas/base-app/blob/43838b1e34beaabeb36cc14964b24b563d9d0c7f/app/__main__.py#L78) entrypoint which also installs a [signal handler](https://github.com/tailucas/pylib/blob/ac05d39592c2264143ec4a37fe76b7e0369515bd/pylib/process.py#L23-L41). This lays down all the code necessary to start the application and worker threads which continue work until the application signals a shutdown.
 
-```python
+{% highlight python %}
 from pylib.process import SignalHandler
 from pylib.threads import thread_nanny, die, bye
 from pylib.app import AppThread
@@ -245,11 +245,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+{% endhighlight %}
 
 Here's a little more detail about [how](https://github.com/tailucas/pylib/blob/master/pylib/threads.py) `exception_handler` does its job, particularly around `__exit__` behaviour:
 
-```python
+{% highlight python %}
 from sentry_sdk import capture_exception
 from zmq.error import ContextTerminated
 from . import threads
@@ -298,7 +298,7 @@ class exception_handler(object):
                 # log the exception as informational if in debug mode
                 log.debug(self.__class__.__name__, exc_info=True)
         return not self._and_raise
-```
+{% endhighlight %}
 
 When the context manager closes, the `__exit__` method is called by the Python runtime. If there is a ZeroMQ socket or `Closable` associated with the context manager, an attempt is made to close it. If the context manager has no exception context, denoted by the `exc_type` parameter, then the context manager is exited with a return (True indicates that it will not be re-raised to the calling code). If there is an exception on exit:
 1. a ZeroMQ `ContextTerminated` exception, which happens when a ZeroMQ socket operation is attempted after calling `zmq.Context().term()`, then this is treated as non-critical; handling it is pointless because the application is shutting down.
@@ -306,16 +306,15 @@ When the context manager closes, the `__exit__` method is called by the Python r
 3. For any (unhandled) `Exception` type, capture the error in Sentry if the application isn't already shutting down. The `die()` method captures this to use in the exit code for the process.
 4. Re-raise the exception if the context manager is used with the parameter `and_raise` is set to `True`.
 
-[blog-balena-url]: https://tailucas.github.io/update/2023/06/11/iot-with-balena-cloud.html
-[blog-rabbit-url]: https://tailucas.github.io/update/2023/06/30/message-brokers-rabbitmq.html
-
-[base-app-url]: https://github.com/tailucas/base-app
-[cronitor-url]: https://cronitor.io/
+[base-app-url]:        https://github.com/tailucas/base-app
+[blog-balena-url]:     https://tailucas.github.io/update/2023/06/11/iot-with-balena-cloud.html
+[blog-rabbit-url]:     https://tailucas.github.io/update/2023/06/30/message-brokers-rabbitmq.html
 [cronitor-python-url]: https://pypi.org/project/cronitor/
-[docker-url]: https://www.docker.com/
-[healthchecks-url]: https://healthchecks.io/
-[influxdb-url]: https://www.influxdata.com/
-[pagerduty-url]: https://www.pagerduty.com/pricing/incident-response/
-[pylib-url]: https://github.com/tailucas/pylib
-[sentry-url]: https://sentry.io/for/python/
-[telegram-url]: https://telegram.org/
+[cronitor-url]:        https://cronitor.io/
+[docker-url]:          https://www.docker.com/
+[healthchecks-url]:    https://healthchecks.io/
+[influxdb-url]:        https://www.influxdata.com/
+[pagerduty-url]:       https://www.pagerduty.com/pricing/incident-response/
+[pylib-url]:           https://github.com/tailucas/pylib
+[sentry-url]:          https://sentry.io/for/python/
+[telegram-url]:        https://telegram.org/

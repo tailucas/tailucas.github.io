@@ -2,7 +2,7 @@
 layout: post
 title:  "IoT with Balena Cloud"
 date:   2023-06-11 08:30:52 +0200
-categories: update
+categories: update iot cloud
 ---
 Today I'm going to talk about my Internet of Things (IoT) experiments using Balena Cloud. You can find my first IoT post [here](https://tailucas.github.io/update/2023/06/07/iot-with-mongoose-os.html).
 
@@ -57,17 +57,17 @@ FROM balenalib/raspberry-pi-alpine-python:latest-latest-run
 
 Next, some project-specific OS dependencies [are installed](https://github.com/tailucas/remote-monitor/blob/72aae8f4e5caef552d6fc365f157facb65198d8c/Dockerfile#L3-L20), including [Supervisor](http://supervisord.org/) for application process control. [The rest](https://github.com/tailucas/remote-monitor/blob/72aae8f4e5caef552d6fc365f157facb65198d8c/Dockerfile#L22-L45) of the `Dockerfile` is responsible for setting up the project environment such as application working directory and crontab for job scheduling. The `Dockerfile` determines what happens at build time, the entrypoint script determines what happens at run time. This project entrypoint will configure `rsyslog` before it is started by Supervisor and generates both the application and Supervisor runtime configuration. With a few permissions needed to interact with the GPIO device handles, some special syntax at the end of the entrypoint spawns `supervisord` running a non-root user as a general best practice. The use of `exec` means that the entrypoint execution context is replaced by the application, meaning that it is no longer running, leaving only supervisor as the process-root with the configured applications as process children.
 
-```shell
+{% highlight bash %}
 exec su-exec app env supervisord -n -c /opt/app/supervisord.conf
-```
+{% endhighlight %}
 
 The [project README](https://github.com/tailucas/remote-monitor#readme-top) continues with a breakdown of the Python application and how it works.
 
-[ab-electronics-pi]: https://www.abelectronics.co.uk/products/17/raspberry-pi-a---b---2---3-and-4
-[ab-adc-img-url]: https://www.abelectronics.co.uk/docs/stock/raspberrypi/adcpi/adcpi-1.jpg
-[ab-io-img-url]: https://www.abelectronics.co.uk/docs/stock/raspberrypi/iozero32/io-zero-32-1.jpg
-[arduino-url]: https://www.arduino.cc/
-[esp-url]: https://www.espressif.com/
-[raspberry-pi-url]: https://www.raspberrypi.org/
-[rpi-img-url]: https://docs.balena.io/img/raspberry-pi/raspberry-pi.jpg
+[ab-adc-img-url]:     https://www.abelectronics.co.uk/docs/stock/raspberrypi/adcpi/adcpi-1.jpg
+[ab-electronics-pi]:  https://www.abelectronics.co.uk/products/17/raspberry-pi-a---b---2---3-and-4
+[ab-io-img-url]:      https://www.abelectronics.co.uk/docs/stock/raspberrypi/iozero32/io-zero-32-1.jpg
+[arduino-url]:        https://www.arduino.cc/
+[esp-url]:            https://www.espressif.com/
+[raspberry-pi-url]:   https://www.raspberrypi.org/
 [remote-monitor-url]: https://github.com/tailucas/remote-monitor
+[rpi-img-url]:        https://docs.balena.io/img/raspberry-pi/raspberry-pi.jpg

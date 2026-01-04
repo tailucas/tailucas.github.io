@@ -2,7 +2,7 @@
 layout: post
 title:  "Building with Message Passing"
 date:   2023-06-25 05:30:52 +0200
-categories: update
+categories: update zmq
 ---
 Today I am going to talk about how and why I used message passing in my [automation projects][home-automation-blog-url] along with a demonstration of the implementation in my [Python library][pylib-url] project.
 
@@ -38,31 +38,31 @@ Here are the components of my [library][pylib-url] and the Python helpers I crea
 This example is pretty straight-forward. Import a `zmq_socket` function from `pylib.zmq` and call it to get a ZeroMQ socket of the desired type.
 
 :outbox_tray: Connect a `PUSH` socket.
-```python
+{% highlight python %}
 from pylib.zmq import zmq_socket
 
 my_pusher = zmq_socket(zmq.PUSH)
 my_pusher.connect('inproc://the-best-socket')
 my_pusher.send_pyobj((my_tuple_a, my_tuple_b))
 my_pusher.close()
-```
+{% endhighlight %}
 
 :inbox_tray: Bind a `PULL` socket.
-```python
+{% highlight python %}
 from pylib.zmq import zmq_socket
 
 my_puller = zmq_socket(zmq.PULL)
 my_puller.bind('inproc://the-best-socket')
 data = my_puller.recv_pyobj()
 my_puller.close()
-```
+{% endhighlight %}
 
 Let's take a look at what the function `pylib.zmq.zmq_socket` actually does. Using the Python `inspect` module, the `FrameInfo` object for the calling code is retrieved and stored with a weak reference to the ZeroMQ socket in a Python `WeakKeyDictionary`. This means that the line of code for each socket creation is tracked.
 
 :shrug:	Why is this needed? In my experience, when ZeroMQ applications move from prototype to non-trivial, it becomes harder to work out where improper socket lifecycle management is holding up application shutdown. I've wasted enough time on this to want *all the visibility*.
 
 [pylib.zmq][pylib-zmq-url]
-```python
+{% highlight python %}
 import inspect
 import zmq
 from weakref import WeakKeyDictionary
@@ -91,12 +91,12 @@ def try_close(socket):
         socket.close()
     except ZMQError:
         log.warning(f'Ignoring socket error when closing socket.', exc_info=True)
-```
+{% endhighlight %}
 
 Later when the application attempts to shutdown, the `thread_nanny` thread method uses this information to report on any sockets that do not close within some grace period (typically 30 seconds). This is incredibly helpful to diagnose issues where a change has inadvertently left a socket open. I needed to know about all ZeroMQ sockets created by the application and so with a *slight* ~~ab~~use of Python's encapsulation permissiveness, I tap into `zmq_context._sockets` to know this. Now it is possible to map the internal sockets to the ones created by the application. Horrible? Maybe :see_no_evil:.
 
 [pylib.threads][pylib-threads-url]
-```python
+{% highlight python %}
 def thread_nanny(signal_handler):
     ...
     try:
@@ -111,7 +111,7 @@ def thread_nanny(signal_handler):
     except RuntimeError:
         # protect against "Set changed size during iteration", try again later
         pass
-```
+{% endhighlight %}
 
 :writing_hand: In a future post, I'll be talking about the resilience features at the application level and will come back to the rest of the behaviour in [pylib.threads][pylib-threads-url].
 
@@ -128,7 +128,7 @@ def thread_nanny(signal_handler):
 * there are two exceptions that trigger specific behaviour. `zmq.error.ContextTerminated` is thrown if a socket operation is attempted after `zmq.Context().term()` is called. If caught, a socket-close operation is attempted and the context manager will return without error because handing it is pointless in that scope if the application is already shutting down. I've appropriated Python's `ResourceWarning` to trigger a situational issue that may provoke a shutdown but without error.
 
 Using the pattern below, the only other code needed is the thread-specific processing of data received by the thread.
-```python
+{% highlight python %}
 from pylib import threads
 from pylib.app import AppThread
 from pylib.zmq import Closable
@@ -147,11 +147,11 @@ class MyThread(AppThread, Closable):
                 ...
                 # processing happens here
                 ...
-```
+{% endhighlight %}
 
 **Option 3**: If using the Pipeline Pattern by chaining PUSH/PULL socket pairs across threads, extend `ZmqRelay` in [pylib.app](https://github.com/tailucas/pylib/blob/ac05d39592c2264143ec4a37fe76b7e0369515bd/pylib/app.py#L26) and implement the `process_message` function. Notice that `ZmqRelay` also [uses](https://github.com/tailucas/pylib/blob/ac05d39592c2264143ec4a37fe76b7e0369515bd/pylib/app.py#L48C14-L48C31) the `exception_handler` and so no special exception handling is needed in `process_message`. Any exceptions will be handled for the thread.
 
-```python
+{% highlight python %}
 class MyPipelineThread(ZmqRelay):
 
     def __init__(self):
@@ -171,26 +171,25 @@ class MyPipelineThread(ZmqRelay):
         # processing happens here
         ...
         self.socket.send_pyobj((my_result_a, my_result_b))
-```
+{% endhighlight %}
 
 ### Message Brokers
 
 ZeroMQ adds value without a broker server to coordinate activities, leaving addressing of nodes to the application author. Given how my early infrastructure was built on ZeroMQ, I understand how to use its strengths and I continue to use it today, though it is limited to inter-thread communication. In part 2, I'll talk more about the other half of my message passing mechanisms that require a broker server, in particular, [RabbitMQ][rabbit-url] and [MQTT][mqtt-url].
 
+[esp-url]:                  https://www.espressif.com/
 [home-automation-blog-url]: https://tailucas.github.io/update/2023/06/18/home-automation.html
-[pylib-url]: https://github.com/tailucas/pylib
-[pylib-threads-url]: https://github.com/tailucas/pylib/blob/master/pylib/threads.py
-[pylib-zmq-url]: https://github.com/tailucas/pylib/blob/master/pylib/zmq.py
-
-[esp-url]: https://www.espressif.com/
-[msg-pack-url]: https://msgpack.org/
-[mqtt-url]: https://mqtt.org/
-[mqttx-url]: https://mqttx.app/
-[mosquitto-url]: https://mosquitto.org/
-[openmpi-url]: https://www.open-mpi.org/
-[python-url]: https://www.python.org/
-[rabbit-url]: https://www.rabbitmq.com/
-[rabbit-gsg-url]: https://www.rabbitmq.com/getstarted.html
-[rpi-url]: https://www.raspberrypi.com/
-[zmq-url]: https://zeromq.org/
-[zmq-socket-api-url]: https://zeromq.org/socket-api/
+[mosquitto-url]:            https://mosquitto.org/
+[mqtt-url]:                 https://mqtt.org/
+[mqttx-url]:                https://mqttx.app/
+[msg-pack-url]:             https://msgpack.org/
+[openmpi-url]:              https://www.open-mpi.org/
+[pylib-threads-url]:        https://github.com/tailucas/pylib/blob/master/pylib/threads.py
+[pylib-url]:                https://github.com/tailucas/pylib
+[pylib-zmq-url]:            https://github.com/tailucas/pylib/blob/master/pylib/zmq.py
+[python-url]:               https://www.python.org/
+[rabbit-gsg-url]:           https://www.rabbitmq.com/getstarted.html
+[rabbit-url]:               https://www.rabbitmq.com/
+[rpi-url]:                  https://www.raspberrypi.com/
+[zmq-socket-api-url]:       https://zeromq.org/socket-api/
+[zmq-url]:                  https://zeromq.org/

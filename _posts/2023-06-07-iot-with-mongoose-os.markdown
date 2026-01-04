@@ -2,7 +2,7 @@
 layout: post
 title:  "IoT with Mongoose OS"
 date:   2023-06-07 21:30:52 +0200
-categories: update
+categories: update iot
 ---
 Today I'm going to talk about my Internet of Things (IoT) experiments.
 
@@ -30,17 +30,16 @@ I use [mDash][mdash-url] not only for occasional device management on their dash
 
 In the next post, I will discuss my experience with the [Balena Cloud](https://www.balena.io/cloud) IoT platform.
 
-[adc-app-url]: https://github.com/tailucas/adc-app
-[meter-app-url]: https://github.com/tailucas/meter-app
-[switch-app-url]: https://github.com/tailucas/switch-app
-
-[uptime-kuma-url]: https://uptime.kuma.pet/
-[esp-url]: https://www.espressif.com/en/products/socs/esp32
-[event-processor-mdash-url]: https://github.com/tailucas/event-processor/blob/fa94393b835efa5de312ec182ba7dbae73bd60a3/app/__main__.py#L1783-L1849
-[mdash-url]: https://mdash.net/home/
-[mdash-api-url]: https://mdash.net/docs/#management-rest-api
-[mongoose-url]: https://mongoose-os.com/
-[mongoose-gsg-url]: https://mongoose-os.com/docs/mongoose-os/quickstart/setup.md#4-create-new-app
-[mos-tool-url]: https://mongoose-os.com/docs/mongoose-os/userguide/mos-tool.md
-[mos-install-url]: https://mongoose-os.com/docs/mongoose-os/quickstart/setup.md
-[mqtt-url]: https://mqtt.org/
+[adc-app-url]:                  https://github.com/tailucas/adc-app
+[esp-url]:                      https://www.espressif.com/en/products/socs/esp32
+[event-processor-mdash-url]:    https://github.com/tailucas/event-processor/blob/fa94393b835efa5de312ec182ba7dbae73bd60a3/app/__main__.py#L1783-L1849
+[mdash-api-url]:                https://mdash.net/docs/#management-rest-api
+[mdash-url]:                    https://mdash.net/home/
+[meter-app-url]:                https://github.com/tailucas/meter-app
+[mongoose-gsg-url]:             https://mongoose-os.com/docs/mongoose-os/quickstart/setup.md#4-create-new-app
+[mongoose-url]:                 https://mongoose-os.com/
+[mos-install-url]:              https://mongoose-os.com/docs/mongoose-os/quickstart/setup.md
+[mos-tool-url]:                 https://mongoose-os.com/docs/mongoose-os/userguide/mos-tool.md
+[mqtt-url]:                     https://mqtt.org/
+[switch-app-url]:               https://github.com/tailucas/switch-app
+[uptime-kuma-url]:              https://uptime.kuma.pet/

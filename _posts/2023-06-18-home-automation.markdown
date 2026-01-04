@@ -2,7 +2,7 @@
 layout: post
 title:  "Automation with Message Brokers"
 date:   2023-06-18 08:30:52 +0200
-categories: update
+categories: update mqtt
 ---
 Today I am going to talk about how I built my home automation projects.
 
@@ -90,42 +90,41 @@ Another piece of this system is the [ADC and I/O expander on Raspberry Pi][remot
 
 A few other [ESP-based][esp-url] projects not shown here can be found in my [previous post][mongoose-blog-url] which discuss the [MQTT][mqtt-url] inputs and outputs.
 
-[zmq-blog-url]: https://tailucas.github.io/update/2023/06/25/message-brokers-zmq.html
-[rabbitmq-blog-url]: https://tailucas.github.io/update/2023/06/30/message-brokers-rabbitmq.html
-[balena-blog-url]: https://tailucas.github.io/update/2023/06/11/iot-with-balena-cloud.html
-[mongoose-blog-url]: https://tailucas.github.io/update/2023/06/07/iot-with-mongoose-os.html
-[event-processor-url]: https://github.com/tailucas/event-processor
+[1p-url]:               https://developer.1password.com/docs/connect/
+[arduino-url]:          https://docs.arduino.cc/hardware/uno-rev3
+[aws-url]:              https://aws.amazon.com/
+[balena-blog-url]:      https://tailucas.github.io/update/2023/06/11/iot-with-balena-cloud.html
+[bootstrap-url]:        https://getbootstrap.com/
+[cronitor-url]:         https://cronitor.io/
+[docker-url]:           https://www.docker.com/
+[esp-url]:              https://www.espressif.com/
+[event-processor-url]:  https://github.com/tailucas/event-processor
+[flask-url]:            https://flask.palletsprojects.com/
+[fontawesome-url]:      https://fontawesome.com/
+[ha-url]:               https://www.home-assistant.io/
+[healthchecks-url]:     https://healthchecks.io/
+[influxdb-url]:         https://www.influxdata.com/
+[jetson-url]:           https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-nano/
+[mdash-url]:            https://mdash.net/home/
+[mongoose-blog-url]:    https://tailucas.github.io/update/2023/06/07/iot-with-mongoose-os.html
+[mqtt-url]:             https://mqtt.org/
+[ngrok-python-url]:     https://github.com/ngrok/ngrok-python/tree/main
+[ngrok-url]:            https://ngrok.com/
+[oh-url]:               https://www.openhab.org/docs/
+[poetry-url]:           https://python-poetry.org/
+[pylib-url]:            https://github.com/tailucas/pylib
+[python-url]:           https://www.python.org/
+[rabbit-url]:           https://www.rabbitmq.com/
+[rabbitmq-blog-url]:    https://tailucas.github.io/update/2023/06/30/message-brokers-rabbitmq.html
+[rekognition-url]:      https://aws.amazon.com/rekognition/
+[remote-monitor-url]:   https://github.com/tailucas/remote-monitor
+[rpi-url]:              https://www.raspberrypi.org/
+[sentry-url]:           https://sentry.io/for/python/
 [snapshot-processor-url]: https://github.com/tailucas/snapshot-processor
-[remote-monitor-url]: https://github.com/tailucas/remote-monitor
-[pylib-url]: https://github.com/tailucas/pylib
-
-[1p-url]: https://developer.1password.com/docs/connect/
-[arduino-url]: https://docs.arduino.cc/hardware/uno-rev3
-[aws-url]: https://aws.amazon.com/
-[bootstrap-url]: https://getbootstrap.com/
-[cronitor-url]: https://cronitor.io/
-[docker-url]: https://www.docker.com/
-[esp-url]: https://www.espressif.com/
-[fontawesome-url]: https://fontawesome.com/
-[healthchecks-url]: https://healthchecks.io/
-[ha-url]: https://www.home-assistant.io/
-[influxdb-url]: https://www.influxdata.com/
-[jetson-url]: https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-nano/
-[mdash-url]: https://mdash.net/home/
-[mqtt-url]: https://mqtt.org/
-[ngrok-url]: https://ngrok.com/
-[ngrok-python-url]: https://github.com/ngrok/ngrok-python/tree/main
-[oh-url]: https://www.openhab.org/docs/
-[poetry-url]: https://python-poetry.org/
-[python-url]: https://www.python.org/
-[flask-url]: https://flask.palletsprojects.com/
-[rabbit-url]: https://www.rabbitmq.com/
-[rekognition-url]: https://aws.amazon.com/rekognition/
-[rpi-url]: https://www.raspberrypi.org/
-[sentry-url]: https://sentry.io/for/python/
-[sqlalchemy-url]: https://www.sqlalchemy.org/
-[sqlite-url]: https://www.sqlite.org/
-[tailscale-url]: https://tailscale.com/
-[telegram-url]: https://telegram.org/
-[telegram-bot-url]: https://docs.python-telegram-bot.org/en/stable/
-[zmq-url]: https://zeromq.org/
+[sqlalchemy-url]:       https://www.sqlalchemy.org/
+[sqlite-url]:           https://www.sqlite.org/
+[tailscale-url]:        https://tailscale.com/
+[telegram-bot-url]:     https://docs.python-telegram-bot.org/en/stable/
+[telegram-url]:         https://telegram.org/
+[zmq-blog-url]:         https://tailucas.github.io/update/2023/06/25/message-brokers-zmq.html
+[zmq-url]:              https://zeromq.org/

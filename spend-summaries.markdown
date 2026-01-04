@@ -9,7 +9,7 @@ youtubeHeight: 394
 youtubeStartSec: 9
 ---
 
-When I heard about Investec Bank's [programmable banking][investec-url] community, I was interested to build a Telegram Bot that would show me various categorizations of my personal spending habits. To achieve this, I build [this project][investec-app-url] and took a small side-quest to build a [Python client][investec-client-url] given that the OpenAPI client generation logic did not work as expected for me at the time.
+When I heard about Investec Bank's [programmable banking][investec-url] community, I was interested to build a Telegram Bot that would show me various categorizations of my personal spending habits. To achieve this, I built [this project][investec-app-url] and took a small side-quest to create a [Python client][investec-client-url] given that the OpenAPI client generation logic did not work as expected for me at the time.
 
 You can see it all in action here, in my community demo:
 

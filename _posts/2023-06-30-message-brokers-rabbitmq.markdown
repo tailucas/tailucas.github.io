@@ -2,7 +2,7 @@
 layout: post
 title:  "Building with Message Brokers"
 date:   2023-06-30 05:30:52 +0200
-categories: update
+categories: update zmq
 ---
 Today I am going to talk about how and why I used message brokers in my [automation projects][home-automation-blog-url] along with a demonstration of the implementation in my [Python library][pylib-url] project.
 
@@ -22,7 +22,7 @@ Referring briefly [back][home-automation-blog-url] to my previous post, you can 
 
 The `MqttSubscriber` MQTT client wrapper can be found [here](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/app/__main__.py#L1471-L1615) on GitHub. Here is a summarized form:
 
-```python
+{% highlight python %}
 import paho.mqtt.client as mqtt
 from paho.mqtt.client import MQTT_ERR_SUCCESS, MQTT_ERR_NO_CONN
 
@@ -106,7 +106,7 @@ class MqttSubscriber(AppThread, Closable):
                 except ZMQError:
                     # ignore, no data
                     pass
-```
+{% endhighlight %}
 
 ### RabbitMQ
 
@@ -122,7 +122,7 @@ For any of my applications, some instance of `ZMQListener` (found [here](https:/
 
 From the diagram above, applications that host purely input or output functions also make use of `RabbitMQRelay` in the `pylib.rabbit` module (found [here](https://github.com/tailucas/pylib/blob/ac05d39592c2264143ec4a37fe76b7e0369515bd/pylib/rabbit.py#L200-L242)) for outbound communications. These are typically instantiated in the [main application thread](https://github.com/tailucas/snapshot-processor/blob/84394fbbcdb9402696720b1c6bf67586d77dcdd1/app/__main__.py#L896-L909) and require little more thought after this point. Here is an excerpt illustrating this and how they build up the ZeroMQ pipeline for inter-thread communication.
 
-```python
+{% highlight python %}
 from pika.exceptions import AMQPConnectionError, StreamLostError, ConnectionClosedByBroker
 
 from pylib import app_config
@@ -187,11 +187,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+{% endhighlight %}
 
 My application [event loop](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/app/__main__.py#L746-L757) also makes use of this pattern in order to send RabbitMQ messages to trigger actions. This is illustrated here with this code excerpt:
 
-```python
+{% highlight python %}
 class EventProcessor(MQConnection, Closable):
 
     def __init__(self, mq_server_address, mq_exchange_name):
@@ -204,33 +204,32 @@ class EventProcessor(MQConnection, Closable):
             # no control message should live longer than 90s
             mq_arguments={'x-message-ttl': 90*1000})
         Closable.__init__(self, connect_url=URL_WORKER_APP)
-```
+{% endhighlight %}
 
 Publication to RabbitMQ happens [in this event loop](https://github.com/tailucas/event-processor/blob/bcca7e27c238cb783abf2102a339e2efcc11a7c8/app/__main__.py#L1301C32-L1301C32) by invoking `MQConnection._basic_publish`.
 
-```python
+{% highlight python %}
     self._basic_publish(
         routing_key=f'event.control.{output_type}',
         event_payload=event_payload)
-```
+{% endhighlight %}
 
+[emqx-url]:                 https://www.emqx.com/
+[esp-url]:                  https://www.espressif.com/
 [home-automation-blog-url]: https://tailucas.github.io/update/2023/06/18/home-automation.html
-[zmq-blog-url]: https://tailucas.github.io/update/2023/06/25/message-brokers-zmq.html
-[pylib-url]: https://github.com/tailucas/pylib
-[pylib-threads-url]: https://github.com/tailucas/pylib/blob/master/pylib/threads.py
-[pylib-zmq-url]: https://github.com/tailucas/pylib/blob/master/pylib/zmq.py
-
-[esp-url]: https://www.espressif.com/
-[msg-pack-url]: https://msgpack.org/
-[mqtt-url]: https://mqtt.org/
-[mqttx-url]: https://mqttx.app/
-[emqx-url]: https://www.emqx.com/
-[mosquitto-url]: https://mosquitto.org/
-[mosquitto-docker-url]: https://hub.docker.com/_/eclipse-mosquitto/
-[paho-python-url]: https://pypi.org/project/paho-mqtt/
-[python-url]: https://www.python.org/
-[rabbit-url]: https://www.rabbitmq.com/
-[rabbit-gsg-url]: https://www.rabbitmq.com/getstarted.html
-[rpi-url]: https://www.raspberrypi.com/
-[zmq-url]: https://zeromq.org/
-[zmq-socket-api-url]: https://zeromq.org/socket-api/
+[mosquitto-docker-url]:     https://hub.docker.com/_/eclipse-mosquitto/
+[mosquitto-url]:            https://mosquitto.org/
+[mqtt-url]:                 https://mqtt.org/
+[mqttx-url]:                https://mqttx.app/
+[msg-pack-url]:             https://msgpack.org/
+[paho-python-url]:          https://pypi.org/project/paho-mqtt/
+[pylib-threads-url]:        https://github.com/tailucas/pylib/blob/master/pylib/threads.py
+[pylib-url]:                https://github.com/tailucas/pylib
+[pylib-zmq-url]:            https://github.com/tailucas/pylib/blob/master/pylib/zmq.py
+[python-url]:               https://www.python.org/
+[rabbit-gsg-url]:           https://www.rabbitmq.com/getstarted.html
+[rabbit-url]:               https://www.rabbitmq.com/
+[rpi-url]:                  https://www.raspberrypi.com/
+[zmq-blog-url]:             https://tailucas.github.io/update/2023/06/25/message-brokers-zmq.html
+[zmq-socket-api-url]:       https://zeromq.org/socket-api/
+[zmq-url]:                  https://zeromq.org/

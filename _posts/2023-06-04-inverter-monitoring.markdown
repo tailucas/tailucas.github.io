@@ -29,9 +29,9 @@ The template for this InfluxDB dashboard is located [here](/assets/blog/inverter
 
 ![Dashboard Right](/assets/blog/inverter/inverter_dashboard_b.png)
 
+[deye-project-url]:     https://github.com/jlopez77/DeyeInverter
+[esp-apps-url]:         https://github.com/tailucas/arduino-mqtt-dashboard
+[esp-url]:              https://www.espressif.com/en/products/socs/esp32
+[influxdata-url]:       https://www.influxdata.com/
 [inverter-monitor-url]: https://github.com/tailucas/inverter-monitor
-[deye-project-url]: https://github.com/jlopez77/DeyeInverter
-[influxdata-url]: https://www.influxdata.com/
-[switch-app-url]: https://github.com/tailucas/switch-app
-[esp-url]: https://www.espressif.com/en/products/socs/esp32
-[esp-apps-url]: https://github.com/tailucas/arduino-mqtt-dashboard
+[switch-app-url]:       https://github.com/tailucas/switch-app
