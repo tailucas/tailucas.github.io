@@ -2,7 +2,7 @@
 layout: post
 title:  "Building with Message Brokers"
 date:   2023-06-30 05:30:52 +0200
-categories: update zmq
+categories: update
 ---
 Today I am going to talk about how and why I used message brokers in my [automation projects][home-automation-blog-url] along with a demonstration of the implementation in my [Python library][pylib-url] project.
 

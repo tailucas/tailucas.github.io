@@ -2,7 +2,7 @@
 layout: post
 title:  "IoT with Balena Cloud"
 date:   2023-06-11 08:30:52 +0200
-categories: update iot cloud
+categories: update
 ---
 Today I'm going to talk about my Internet of Things (IoT) experiments using Balena Cloud. You can find my first IoT post [here](https://tailucas.github.io/update/2023/06/07/iot-with-mongoose-os.html).
 

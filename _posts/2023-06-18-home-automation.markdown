@@ -2,7 +2,7 @@
 layout: post
 title:  "Automation with Message Brokers"
 date:   2023-06-18 08:30:52 +0200
-categories: update mqtt
+categories: update
 ---
 Today I am going to talk about how I built my home automation projects.
 

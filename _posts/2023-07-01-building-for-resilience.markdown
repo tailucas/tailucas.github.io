@@ -2,7 +2,7 @@
 layout: post
 title:  "Building for Resilience"
 date:   2023-07-01 05:30:52 +0200
-categories: update availability
+categories: update
 ---
 Today I'm going to talk about how I build resilience into my personal projects.
 

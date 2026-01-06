@@ -2,7 +2,7 @@
 layout: post
 title:  "Network Monitoring with Tailscale"
 date:   2024-11-10 05:30:52 +0200
-categories: update monitoring network
+categories: update
 ---
 Today I'm going to talk about a relatively straight-forward [network monitoring solution][ping-tool-url] made trivial using [Tailscale][tailscale-url]. While this solution could be built using Linux iptables rules with no other dependencies, I already made use of Tailscale's [subnet router][tailscale-sr-url] functionality across remote subnets, so this was just an extension of an existing ecosystem I used.
 
