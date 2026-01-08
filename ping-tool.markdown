@@ -3,7 +3,6 @@ layout: page
 title: Ping Tool
 permalink: /ping-tool/
 ---
-
 [This project](https://github.com/tailucas/ping-tool) belongs to my open-source [collection][tailucas-url], borrowing elements from the more sophisticated [base project][baseapp-url] from which I have created a [reference implementation][simple-app-url] to generally bootstrap new projects for myself. This project has been deliberately simplified to run a Python application natively on the still-relevant [Raspberry Pi][pi-url] single-board computer (SBC). With the few remaining Model B+ devices that I have, I run a [Python][python-url] application on the Debian-based [Raspbery Pi OS][pi-os-url] with successful Python dependency compilation on ARMv6. Although this project is configured for development using VSCode [development containers][dev-container-url], I chose to install and run the application natively without running a built container due to the constrained environment of the Model B+ SBC.
 
 ![classes](/assets/ping-tool/ping-tool.drawio.png)
